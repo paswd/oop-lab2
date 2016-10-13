@@ -13,6 +13,8 @@ class StackNode {
 public:
 	Item value;
 	StackNode *next;
+
+	StackNode(void);
 };
 
 class Stack {

@@ -1,58 +1,6 @@
 #include "stack.h"
 #include "square.h"
-//#include "basfunc.h"
 
-
-/*struct _stack {
-	StackNode *top;
-};
-
-
-void stack_push(Stack *stack, Item value)
-{
-	
-}
-
-Item stack_pop(Stack *stack)
-{
-	
-}
-
-Item stack_top(Stack *stack)
-{
-	
-}
-
-/*void stack_print_correct(Stack *stack)
-{
-	StackNode *ths = stack->first;
-	while (ths) {
-		printf("%lld ", ths->value);
-		ths = ths->next;
-	}
-	printf("\n");
-}*/
-
-/*bool stack_is_empty(Stack *stack)
-{
-	if (stack->top == NULL)
-		return true;
-	return false;
-}
-
-int stack_depth(Stack *stack)
-{
-
-}
-void stack_print(Stack *stack)
-{
-	if (stack_is_empty(stack))
-		return;
-	Item value = stack_pop(stack);
-	stack_print(stack);
-	stack_push(stack, value);
-	printf("%lld ", value);
-}*/
 
 FSquare GetEmptyFSquare(void)
 {
@@ -65,6 +13,13 @@ FSquare GetEmptyFSquare(void)
 	return empty;
 }
 
+StackNode::StackNode(void)
+{
+	this->value = GetEmptyFSquare();
+	this->next = NULL;
+}
+
+
 Stack::Stack(void)
 {
 	this->top = NULL;
@@ -75,7 +30,7 @@ Stack::~Stack(void)
 	StackNode *node_del = this->top;
 	while (node_del) {
 		StackNode *tmp = node_del->next;
-		free(node_del);
+		delete node_del;
 		node_del = tmp;
 	}
 }
@@ -93,7 +48,7 @@ Item Stack::Pop(void)
 {
 	if (this->IsEmpty()) {
 		printf("Stack is empty\n");
-		return GetEmptyFSquare(void);
+		return GetEmptyFSquare();
 	}
 	Item result = this->top->value;
 	StackNode *node_del = this->top;
@@ -105,7 +60,7 @@ Item Stack::Pop(void)
 Item Stack::Top(void)
 {
 	if (this->IsEmpty())
-		return GetEmptyFSquare(void);
+		return GetEmptyFSquare();
 	return this->top->value;
 }
 

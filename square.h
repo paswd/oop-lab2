@@ -15,8 +15,10 @@ public:
 	double Square() override;
 	void Print() override;
 	virtual ~FSquare();
+	double GetLength();
 private:
 	Position pos;
 	double len;
 };
+
 #endif /* FSQUARE_H */

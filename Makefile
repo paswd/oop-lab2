@@ -3,8 +3,8 @@ COMPILLER=g++
 
 all: start
 
-start: geometry.o rectangle.o square.o trapeze.o main.o
-	$(COMPILLER) $(FLAGS) -o oop-lab1 geometry.o rectangle.o square.o trapeze.o main.o
+start: geometry.o square.o stack.o main.o
+	$(COMPILLER) $(FLAGS) -o oop-lab1 geometry.o square.o stack.o main.o
 
 main.o: main.cpp
 	$(COMPILLER) -c $(FLAGS) main.cpp
@@ -12,14 +12,11 @@ main.o: main.cpp
 geometry.o: geometry.cpp
 	$(COMPILLER) -c $(FLAGS) geometry.cpp
 
-rectangle.o: rectangle.cpp
-	$(COMPILLER) -c $(FLAGS) rectangle.cpp
-
 square.o: square.cpp
 	$(COMPILLER) -c $(FLAGS) square.cpp
 
-trapeze.o: trapeze.cpp
-	$(COMPILLER) -c $(FLAGS) trapeze.cpp
+stack.o: stack.cpp
+	$(COMPILLER) -c $(FLAGS) stack.cpp
 
 clear:
 	-rm -f *.o *.gch da-lab1
