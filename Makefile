@@ -4,7 +4,7 @@ COMPILLER=g++
 all: start
 
 start: geometry.o square.o stack.o main.o
-	$(COMPILLER) $(FLAGS) -o oop-lab1 geometry.o square.o stack.o main.o
+	$(COMPILLER) $(FLAGS) -o oop-lab2 geometry.o square.o stack.o main.o
 
 main.o: main.cpp
 	$(COMPILLER) -c $(FLAGS) main.cpp
@@ -19,4 +19,4 @@ stack.o: stack.cpp
 	$(COMPILLER) -c $(FLAGS) stack.cpp
 
 clear:
-	-rm -f *.o *.gch da-lab1
+	-rm -f *.o *.gch oop-lab2

@@ -38,7 +38,7 @@ Stack::~Stack(void)
 
 void Stack::Push(Item value)
 {
-	StackNode *nw = new StackNode;
+	StackNode *nw = new StackNode();
 	nw->value = value;
 	nw->next = this->top;
 	this->top = nw;
@@ -88,7 +88,7 @@ void Stack::Print(void)
 		return;
 	Item value = this->Pop();
 	this->Print();
-	this->Push(value);
 	value.Print();
+	this->Push(value);
 }
 

@@ -8,7 +8,7 @@
 
 class FSquare : public Figure {
 public:
-	//FSquare();
+	FSquare();
 	FSquare(std::istream &is);
 	FSquare(Position in_pos, double length);
 	FSquare(const FSquare &orig);
