@@ -1,21 +1,23 @@
-#include <stdio.h>
+#include <iostream>
 #include "figure.h"
 #include "stack.h"
 #include "square.h"
 
+using namespace std;
+
 int main(void)
 {
 	Stack *stack = new Stack;
-	printf("-------------------------------------------\n");
-	printf("Commands:\n");
-	printf("a <value> - push to stack\n");
-	printf("d - pop from stack and print popped item\n");
-	printf("p - print stack\n");
-	printf("q - exit\n");
-	printf("-------------------------------------------\n");
+	cout << "-------------------------------------------\n";
+	cout << "Commands:\n";
+	cout << "a <value> - push to stack\n";
+	cout << "d - pop from stack and print popped item\n";
+	cout << "p - print stack\n";
+	cout << "q - exit\n";
+	cout << "-------------------------------------------\n";
 	//int cnt = 0;
 	while (true) {
-		//printf("%d\n", cnt);
+		//cout << "%d\n", cnt;
 		//cnt++;
 		char cmd;
 		Item value = GetEmptyFSquare();
@@ -26,26 +28,28 @@ int main(void)
 				is_finished = true;
 				break;
 			case 'a':
-				value = (Item) FSquare(std::cin);
+				//value = (Item) FSquare(std::cin);
+				cin >> value;
 				stack->Push(value);
 				break;
 			case 'd':
 				value = stack->Pop();
 				if (value.GetLength() >= 0.0)
-					value.Print();
+					cout << value << endl;
 				break;
 			case 'p':
-				stack->Print();
+				//stack->Print();
+				cout << *stack << endl;
 				break;
 			case '\n':
 				break;
 			default:
-				printf("Invalid command `%c`\n", cmd);
+				cout << "Invalid command " << cmd << "\n";
 				break;
 		}
 		if (is_finished) break;
 	}
-	printf("Goodbye!\n");
+	cout << "Goodbye!\n";
 
 	delete stack;
 

@@ -11,6 +11,9 @@ public:
 
 	void Input(std::istream &is);
 	void Print();
+
+	friend std::ostream& operator<<(std::ostream& os, const Position& pos);
+	friend std::istream& operator>>(std::istream& is, Position& obj);
 };
 
 double Absolute(double num);

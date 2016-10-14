@@ -16,6 +16,8 @@ public:
 	void Print() override;
 	virtual ~FSquare();
 	double GetLength();
+	friend std::ostream& operator<<(std::ostream& os, const FSquare& obj);
+	friend std::istream& operator>>(std::istream& is, FSquare& obj);
 private:
 	Position pos;
 	double len;

@@ -19,6 +19,17 @@ StackNode::StackNode(void)
 	this->next = NULL;
 }
 
+StackNode *StackNode::GetNext(void)
+{
+	return this->next;
+}
+
+std::ostream& operator<<(std::ostream& os, const StackNode& node)
+{
+	os << node.value;
+	return os;
+}
+
 
 Stack::Stack(void)
 {
@@ -82,7 +93,7 @@ size_t Stack::Depth(void)
 	return res + 1;
 }
 
-void Stack::Print(void)
+/*void Stack::Print(void)
 {
 	if (this->IsEmpty())
 		return;
@@ -90,5 +101,16 @@ void Stack::Print(void)
 	this->Print();
 	value.Print();
 	this->Push(value);
+}*/
+
+std::ostream& operator<<(std::ostream& os,const Stack& stack)
+{
+	//os << "Test" << std::endl;
+	StackNode *ths = stack.top;
+	while (ths != NULL) {
+		os << *ths;
+		ths = ths->GetNext();
+	}
+	return os;
 }
 

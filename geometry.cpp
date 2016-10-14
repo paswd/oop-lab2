@@ -13,7 +13,7 @@ void Position::Input(std::istream &is)
 
 void Position::Print()
 {
-	cout << "(" << this->x << ":" << this->y << ")" << endl;
+	cout << "(" << this->x << ":" << this->y << ")";
 }
 
 double Absolute(double num)
@@ -22,4 +22,16 @@ double Absolute(double num)
 		num = -num;
 
 	return num;
+}
+
+std::ostream& operator<<(std::ostream& os, const Position& pos)
+{
+	os << "(" << pos.x << ":" << pos.y << ")";
+	return os;
+}
+std::istream& operator>>(std::istream& is, Position& pos)
+{
+	is >> pos.x;
+	is >> pos.y;
+	return is;
 }

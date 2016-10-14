@@ -15,6 +15,8 @@ public:
 	StackNode *next;
 
 	StackNode(void);
+	StackNode *GetNext(void);
+	friend std::ostream& operator<<(std::ostream& os, const StackNode& node);
 };
 
 class Stack {
@@ -29,7 +31,8 @@ public:
 	Item Top(void);
 	bool IsEmpty(void);
 	size_t Depth(void);
-	void Print(void);
+	//void Print(void);
+	friend std::ostream& operator<<(std::ostream& os,const Stack& stack);
 };
 
 #endif

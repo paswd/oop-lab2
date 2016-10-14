@@ -58,3 +58,22 @@ double FSquare::GetLength()
 {
 	return this->len;
 }
+std::ostream& operator<<(std::ostream& os, const FSquare& obj)
+{
+	/*cout << "Position: ";
+	this->pos.Print();
+	cout << "Side length: " << this->len << endl;*/
+	os << "Position: " << obj.pos << std::endl;
+	os << "Side length: " << obj.len << std::endl;
+	os << "Square: " << obj.len * obj.len << std::endl;
+	return os;
+}
+
+std::istream& operator>>(std::istream& is, FSquare& obj)
+{
+	std::cout << "Figure: Square (Position, Length)" << std::endl;
+	obj.pos.Input(is);
+	is >> obj.len;
+	std::cout << "Square created" << std::endl;
+	return is;
+}
