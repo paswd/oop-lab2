@@ -107,9 +107,14 @@ std::ostream& operator<<(std::ostream& os,const Stack& stack)
 {
 	//os << "Test" << std::endl;
 	StackNode *ths = stack.top;
+	size_t cnt = 0;
 	while (ths != NULL) {
+		if (cnt > 0) {
+			std::cout << "-------------------------------" << std::endl;
+		}
 		os << *ths;
 		ths = ths->GetNext();
+		cnt++;
 	}
 	return os;
 }

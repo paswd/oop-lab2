@@ -20,3 +20,4 @@ stack.o: stack.cpp
 
 clear:
 	-rm -f *.o *.gch oop-lab2
+
